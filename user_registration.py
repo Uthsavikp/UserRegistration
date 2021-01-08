@@ -2,7 +2,7 @@
   @Author: Uthsavi KP
   @Date: 2021-01-08 23:27:24
   @Last Modified by:  Uthsavi KP
-  @Last Modified time: 2021-01-09 01:12:54
+  @Last Modified time: 2021-01-09 01:28:37
   @Title: User Registration Problem 
 '''
 
@@ -15,14 +15,16 @@ class UserRegistration:
         """
         self.name = "^[A-Z][a-zA-Z]{2,}$"
         self.email = "^[a-zA-z]{3}[0-9a-zA-Z\\.\\_\\-\\+]*@[a-z0-9]*\\.(co|com.au|in|net|in|com.com|com|)$"
+        self.mobile_number = "^(\\+91) [6-9][0-9]{9}$"
 
     def get_user_registration(self):
         """
         contains all the methods 
         """
-        user_register.get_first_name() 
-        user_register.get_last_name()
-        user_register.get_email_address()
+        self.get_first_name() 
+        self.get_last_name()
+        self.get_email_address()
+        self.get_mobile_number()
 
     def get_first_name(self):    
         """
@@ -68,7 +70,21 @@ class UserRegistration:
                 print("Invalid email address")	
                 self.get_email_address()
         except Exception as err:
-            print(err)                  
+            print(err)
+
+    def get_mobile_number(self):
+        """
+        getting input for mobile number
+        """
+        try:
+            mobile_number_input = input("Enter your mobile number :")
+            if re.match(self.mobile_number, mobile_number_input):
+                print("Valid mobile number")
+            else:
+                print("Invalid mobile number")	
+                self.get_mobile_number()
+        except Exception as err:
+            print(err)                          
 
 if __name__ == "__main__":
     user_register = UserRegistration()
