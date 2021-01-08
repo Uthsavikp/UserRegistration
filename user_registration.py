@@ -2,7 +2,7 @@
   @Author: Uthsavi KP
   @Date: 2021-01-08 23:27:24
   @Last Modified by:  Uthsavi KP
-  @Last Modified time: 2021-01-09 01:38:03
+  @Last Modified time: 2021-01-09 01:46:18
   @Title: User Registration Problem 
 '''
 
@@ -11,12 +11,13 @@ class UserRegistration:
     def __init__(self):
         """
         cointains all regular expression patterns
-        and validating user input using these patterns
+        and taking user input and mattching it with
+        regular expression patterns
         """
         self.name = "^[A-Z][a-zA-Z]{2,}$"
         self.email = "^[a-zA-z]{3}[0-9a-zA-Z\\.\\_\\-\\+]*@[a-z0-9]*\\.(co|com.au|in|net|in|com.com|com|)$"
         self.mobile_number = "^(\\+91) [6-9][0-9]{9}$"
-        self.password = "^[a-zA-Z0-9]{8,}$"
+        self.password = "^(?=.*[A-Z])[a-zA-Z0-9]{8,}$"
 
     def get_user_registration(self):
         """
@@ -91,14 +92,15 @@ class UserRegistration:
     def get_password(self):
         """
         getting input for password with 
-        minimum eigth characters
+        minimum eigth characters and
+        atleast one upper case
         """
         try:
             password_input = input("Enter your password :")
             if re.match(self.password, password_input):
                 print("Valid password")
             else:
-                print("Invalid password,re enter your password with min eigth characters")	
+                print("Invalid password,re enter your password with atleast one upper case")	
                 self.get_password()
         except Exception as err:
             print(err)                                 
