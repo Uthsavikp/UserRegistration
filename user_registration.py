@@ -11,7 +11,8 @@ class UserRegistration:
     def __init__(self):
         """
         cointains all regular expression patterns
-        and validating user input using these patterns
+        and taking user input and mattching it with
+        regular expression patterns
         """
         self.name = "^[A-Z][a-zA-Z]{2,}$"
         self.email = "^[a-zA-z]{3}[0-9a-zA-Z\\.\\_\\-\\+]*@[a-z0-9]*\\.(co|com.au|in|net|in|com.com|com|)$"
