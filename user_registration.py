@@ -2,7 +2,7 @@
   @Author: Uthsavi KP
   @Date: 2021-01-08 23:27:24
   @Last Modified by:  Uthsavi KP
-  @Last Modified time: 2021-01-09 02:12:09
+  @Last Modified time: 2021-01-09 02:19:31
   @Title: User Registration Problem 
 '''
 
@@ -17,7 +17,7 @@ class UserRegistration:
         self.name = "^[A-Z][a-zA-Z]{2,}$"
         self.email = "^[a-zA-z]{3}[0-9a-zA-Z\\.\\_\\-\\+]*@[a-z0-9]*\\.(co|com.au|in|net|in|com.com|com|)$"
         self.mobile_number = "^(\\+91) [6-9][0-9]{9}$"
-        self.password = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$"
+        self.password = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{7,}[\\$\\?\\#\\@\\%\\&]$"
 
     def get_user_registration(self):
         """
@@ -93,15 +93,16 @@ class UserRegistration:
         """
         getting input for password with 
         minimum eigth characters,
-        atleast one upper case and
-        atleast one numeric number
+        atleast one upper case,
+        atleast one numeric number and
+        exactly one special character
         """
         try:
             password_input = input("Enter your password :")
             if re.match(self.password, password_input):
                 print("Valid password")
             else:
-                print("Invalid password,re enter your password with atleast one numeric number")	
+                print("Invalid password,re enter your password with exactly one special character")	
                 self.get_password()
         except Exception as err:
             print(err)                                 
