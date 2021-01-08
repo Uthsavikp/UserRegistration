@@ -99,7 +99,7 @@ class UserRegistration:
                 print("Valid password")
             else:
                 print("Invalid password,re enter your password with min eigth characters")	
-                self.get_mobile_number()
+                self.get_password()
         except Exception as err:
             print(err)                                 
 
